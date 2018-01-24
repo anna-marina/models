@@ -45,6 +45,10 @@ import tensorflow as tf
 import data_utils
 import seq2seq_model
 
+setattr(tf.contrib.rnn.GRUCell, '__deepcopy__', lambda self, _: self)
+setattr(tf.contrib.rnn.BasicLSTMCell, '__deepcopy__', lambda self, _: self)
+setattr(tf.contrib.rnn.MultiRNNCell, '__deepcopy__', lambda self, _: self)
+
 
 tf.app.flags.DEFINE_float("learning_rate", 0.5, "Learning rate.")
 tf.app.flags.DEFINE_float("learning_rate_decay_factor", 0.99,
